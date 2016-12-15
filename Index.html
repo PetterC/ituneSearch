@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>iTunes Music Search</title>
+
+    <link rel="stylesheet" type="text/css" href="MusicSearch.css">
+
+  </head>
+
+  <body ng-controller="iTunesController">
+
+<div align="center">
+     <h1>iTunes Music Search</h1>
+          <form name="search" ng-submit="searchiTunes(artist)">
+           <input type="search" required placeholder="Artist" ng-model="artist"/>
+              <input type="submit" value="Search"/>
+          </form>
+          <table ng-show="songs">
+              <th>
+              Top 50 Results</th>
+             <tr>
+             <th>Album</th>
+             <th>Track</th>
+             <th>Preview</th>
+             </tr>
+              <tr ng-repeat="song in songs">
+              <td><img ng-src="{{song.artworkUrl60}}"alt="{{song.collectionName}}"/>
+              </td>
+              <td>{{song.trackName}}</td>
+              <td>
+                <a href="{{song.previewUrl}}">Play</td>
+            </table>
+</div>
+               <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js">
+               </script>
+               <!--used angularjs link from below link-->
+               <!---https://blogs.sequoiainc.com/build-your-first-angularjs-application-to-search-itunes/-->
+
+               <script src="ituneSearch.js"></script>
+  </body>
+
+
+</html>
